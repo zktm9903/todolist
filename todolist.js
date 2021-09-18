@@ -22,14 +22,34 @@ var Target = document.getElementById("current");
 
 var listBox = document.getElementById("ListBox");
 
-
 function save(){
-    const Info = document.getElementById('inputBox').value;
-    var newList = document.createElement("div");
+    var toDotext = document.getElementById("toDotext");
+    var Info = toDotext.value;
 
-    newList.innerHTML = Info;
+    var new_ListInfoBox = document.createElement("div");
+    var new_left_div = document.createElement("div");
+    var new_right_div = document.createElement("div");
+    var new_img = document.createElement("img");
+    var new_p = document.createElement("p");
 
-    listBox.appendChild(newList);
+    new_ListInfoBox.setAttribute("class", "ListInfoBox");
+    new_left_div.setAttribute("class", "ListInfoImgBox")
+    new_right_div.setAttribute("class", "ListInfoTxtBox")
+    new_img.setAttribute("src", "/check-mark.png");
+    new_img.setAttribute("id", "checkImg");
+    new_p.setAttribute("id","ListInfoTxt");
+
+    new_p.innerHTML = Info;
+
+    new_left_div.appendChild(new_img);
+    new_right_div.appendChild(new_p);
+
+    new_ListInfoBox.appendChild(new_left_div);
+    new_ListInfoBox.appendChild(new_right_div);
+
+    listBox.appendChild(new_ListInfoBox);
+
+    toDotext.value= null;
 }
 
 
