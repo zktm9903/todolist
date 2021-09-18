@@ -19,3 +19,19 @@ var Target = document.getElementById("current");
         }
         clock();
         setInterval(clock, 1000); // 1초마다 실행
+
+var listBox = document.getElementById("ListBox");
+
+
+function save(){
+    const Info = document.getElementById('inputBox').value;
+    var newList = document.createElement("div");
+
+    newList.innerHTML = Info;
+
+    listBox.appendChild(newList);
+}
+
+
+
+
