@@ -38,7 +38,7 @@ function save(){
     new_ListInfoBox.setAttribute("class", "ListInfoBox");
     new_left_div.setAttribute("class", "ListInfoImgBox")
     new_right_div.setAttribute("class", "ListInfoTxtBox")
-    new_img.setAttribute("src", "/check-mark.png");
+    new_img.setAttribute("src", "./check-mark.png");
     new_img.setAttribute("id", "checkImg");
     new_img.setAttribute("onclick", "checkDo(this)");
     new_img.setAttribute("class", "checkImgOpacity");
