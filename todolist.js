@@ -23,8 +23,11 @@ var Target = document.getElementById("current");
 var listBox = document.getElementById("ListBox");
 
 function save(){
+
+    
     var toDotext = document.getElementById("toDotext");
     var Info = toDotext.value;
+
 
     var new_ListInfoBox = document.createElement("div");
     var new_left_div = document.createElement("div");
@@ -37,6 +40,8 @@ function save(){
     new_right_div.setAttribute("class", "ListInfoTxtBox")
     new_img.setAttribute("src", "/check-mark.png");
     new_img.setAttribute("id", "checkImg");
+    new_img.setAttribute("onclick", "checkDo(this)");
+    new_img.setAttribute("class", "checkImgOpacity");
     new_p.setAttribute("id","ListInfoTxt");
 
     new_p.innerHTML = Info;
@@ -49,9 +54,71 @@ function save(){
 
     listBox.appendChild(new_ListInfoBox);
 
+    var newList = new toDoListInfo(Info, new_ListInfoBox);
+    toDoListInfoArr.push(newList);
+    //console.log(toDoListInfoArr)
+
     toDotext.value= null;
 }
 
+var cntList = 0;
+var toDoListInfoArr = [];
+
+var toDoListInfo = function(text, infoDiv){
+    this.index = cntList++;
+    this.check = false;
+    this.text = text;
+    this.infoDiv = infoDiv;
+}
+
+function checkDo(obj_img){
+    
+    var OpacityClass = obj_img.getAttribute("class");
+    var ListBox = obj_img.parentElement.parentElement;
+
+    if(OpacityClass == "checkImgOpacity"){ //체크 on
+        obj_img.setAttribute("class", "");
+
+        for(var value of toDoListInfoArr){
+
+            if(value.infoDiv == ListBox){
+
+                value.check = true;
+
+            }
+        }
+        //console.log(toDoListInfoArr);
 
 
+    }
+    else{ //체크 off
+        obj_img.setAttribute("class", "checkImgOpacity");
+
+        for(var value of toDoListInfoArr){
+
+            if(value.infoDiv == ListBox){
+
+                value.check = false;
+
+            }
+        }
+        //console.log(toDoListInfoArr);
+    }
+    
+    
+    console.log(toDoListInfoArr);
+}
+
+function removeList(){
+
+    for(var i=0;i<toDoListInfoArr.length;i++){
+        if(toDoListInfoArr[i].check==true){
+            listBox.removeChild(toDoListInfoArr[i].infoDiv);
+            toDoListInfoArr.splice(i,1);
+            i--;
+        }
+    }
+    
+    console.log(toDoListInfoArr);
+}
 

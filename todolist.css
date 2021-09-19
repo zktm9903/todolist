@@ -63,8 +63,10 @@ body{
     box-sizing: border-box;
     border-radius: 12px;
     padding-left: 10px;
+    
     font-size: 20px;
-    margin: 0 auto;
+
+    margin-right: 20px;
     width: 70%;
     height: 3rem;
 }
@@ -89,10 +91,23 @@ body{
 
 #checkImg{
     width: 40px;
+
 }
 
 #ListInfoTxt{
     word-wrap:break-word;
     width: auto;
     max-width: 360px;
+}
+
+.checkImgOpacity{
+    opacity: 0.5;
+}
+.removeButton{
+    width: 50px;
+
+}
+
+.removeButton:hover{
+    width: 55px;
 }
