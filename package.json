@@ -1,0 +1,23 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "- https://zktm9903.github.io/todolist/todolist.html",
+  "main": "todolist.js",
+  "scripts": {
+    "start": "node axios"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zktm9903/todolist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zktm9903/todolist/issues"
+  },
+  "homepage": "https://github.com/zktm9903/todolist#readme",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "express": "^4.17.1"
+  }
+}
